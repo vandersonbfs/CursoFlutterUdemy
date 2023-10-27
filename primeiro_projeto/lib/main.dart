@@ -15,8 +15,8 @@ eu quero gerenciar a partir dessa classe então nós temos uma classe e vai gere
 estado e nós temos uma outra classe que vai ser o nosso componente então o nosso estado 
 vai ser gerenciado nessa outra classe então eu vou jogar aqui para cima com o alt setinha 
 para cima do mouse eu vou colocar aqui o meu estado que é perguntas selecionada recebendo 
-aqui o valor zero ou também passar para cá o método responder porque porque o médico vai 
-responder ele vai manipular esse valor e uma outra coisa também que a gente vai passar é o 
+aqui o valor zero ou também passar para cá o método _responder porque porque o médico vai 
+_responder ele vai manipular esse valor e uma outra coisa também que a gente vai passar é o 
 método beauty por que que eu vou passar o método para dentro do Estado porque o método seja 
 minha área de componentes ela depende do estado da aplicação para se renderizada então por 
 isso que eu vou selecionar isso aqui tudo e jogar aqui pra cima alto para cima para cima 
@@ -24,8 +24,8 @@ para cima poderia ter só copiado da minha classe
 */
 class PerguntaAppState extends State<PerguntaApp> {
   var perguntaSelecionada = 0;
-
-  void responder() {
+// Colocando o underline em frente da fariavel torna ele em privado.
+  void _responder() {
     setState(() {
       perguntaSelecionada++;
     });
@@ -48,15 +48,15 @@ class PerguntaAppState extends State<PerguntaApp> {
           children: [
             Text(perguntas[perguntaSelecionada]),
             ElevatedButton(
-              onPressed: responder,
+              onPressed: _responder,
               child: const Text('Resposta 1'),
             ),
             ElevatedButton(
-              onPressed: responder,
+              onPressed: _responder,
               child: const Text('Resposta 2'),
             ),
             ElevatedButton(
-              onPressed: responder,
+              onPressed: _responder,
               child: const Text('Resposta 3'),
             ),
           ],
@@ -80,7 +80,7 @@ class PerguntaAppState extends State<PerguntaApp> {
  * seja um estado que vai atender ao componente é exatamente o que a gente colocou aqui na herança 
  * no final das contas basta eu retornar uma pergunta primeira coisa que a gente fez foi trocar a
  *  herança agora o meu componente do Estado agora que vai controlar essa variável como o método 
- * responder também precisava do Estado a responder para dentro do estado e como a minha árvore de
+ * _responder também precisava do Estado a _responder para dentro do estado e como a minha árvore de
  *  componentes
  * 
  */
