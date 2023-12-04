@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './resposta.dart';
-import './resultaddo.dart';
+import './questionario.dart';
+import './resultado.dart';
 
 void main() => runApp(const PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
   final _perguntas = const [
-    //Retirou de dentro metodo build
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco'],
@@ -25,42 +23,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   void _responder() {
     if (temPerguntaSelecionada) {
-// temPerguntaSelecionada tem que ser menos que o tamanho da lista.
-// caso contrario ele não chama o set
       setState(() {
         _perguntaSelecionada++;
       });
     }
   }
 
-// Criou um getter,
-//temPerguntaSelecionada tem que ser menos que o tamanho da lista.
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
   }
 
-//Mudou a variavel perguntas para privado
   @override
   Widget build(BuildContext context) {
-    // Se temPerguntaSelecionada então carrega as respostas.
-    List<String> respostas = temPerguntaSelecionada
-        ? _perguntas[_perguntaSelecionada]['respostas'] as List<String>
-        : [];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Perguntas'),
         ),
         body: temPerguntaSelecionada
-            // Se temPerguntaSelecionada então carrega as respostas.
-            ? Column(
-                children: [
-                  Questao(_perguntas[_perguntaSelecionada]['texto'] as String),
-                  ...respostas.map((t) => Resposta(t, _responder)).toList(),
-                ],
+            ? Questionario(
+                perguntas: _perguntas,
+                perguntaSelecionada: _perguntaSelecionada,
+                quandoResponder: _responder,
               )
-            : Resultado(),
+            : const Resultado(),
       ),
     );
   }
