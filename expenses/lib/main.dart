@@ -35,14 +35,13 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Despesas Pessoais'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(
             child: Card(
               color: Colors.blue,
-              child: Text('Gráfico'),
               elevation: 5,
+              child: Text('Gráfico'),
             ),
           ),
           Column(
