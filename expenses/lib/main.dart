@@ -50,16 +50,16 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
                       decoration: BoxDecoration(
                           border: Border.all(
                         color: Colors.purple,
                         width: 2,
                       )),
-                      padding: EdgeInsets.all(10),
-                      child: Text(tr.value.toString(),
-                          style: TextStyle(
+                      padding: const EdgeInsets.all(10),
+                      child: Text('R\$  ${tr.value.toStringAsFixed(2)}',
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             color: Colors.purple,
@@ -78,7 +78,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                         Text(
                           tr.date.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.grey,
                           ),
                         ),
